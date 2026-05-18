@@ -10,10 +10,30 @@ import {
 import { DynamicForm } from './components/DynamicForm'
 import SubmissionsStack from './components/SubmissionsStack';
 import formSchemas from "./schema/formSchema.json";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+function getInitialFormIndex() {
+  const params = new URLSearchParams(window.location.search);
+  const formParam = params.get('form');
+
+  if (!formParam) {
+    return 0;
+  }
+
+  const numericIndex = Number(formParam);
+  if (Number.isInteger(numericIndex) && numericIndex >= 0 && numericIndex < formSchemas.length) {
+    return numericIndex;
+  }
+
+  const matchedIndex = formSchemas.findIndex(
+    (form) => form.formName.toLowerCase() === formParam.toLowerCase(),
+  );
+
+  return matchedIndex >= 0 ? matchedIndex : 0;
+}
 
 export default function App() {
-  const [selectedFormIndex, setSelectedFormIndex] = useState(0);
+  const [selectedFormIndex, setSelectedFormIndex] = useState(getInitialFormIndex);
 
   const handleChange = (event) => {
     setSelectedFormIndex(event.target.value);
@@ -21,6 +41,12 @@ export default function App() {
 
   const selectedForm = formSchemas[selectedFormIndex];
   const totalFields = formSchemas.reduce((total, form) => total + form.fields.length, 0);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    params.set('form', String(selectedFormIndex));
+    window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+  }, [selectedFormIndex]);
 
   return (
     <main className="app-shell">

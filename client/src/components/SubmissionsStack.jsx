@@ -12,6 +12,13 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function SubmissionsStack() {
     const [submissions, setSubmissions] = useState([]);
+    const [expanded, setExpanded] = useState(false);
+
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const submissionParam = params.get('submission');
+        setExpanded(submissionParam ? `submission-${submissionParam}` : false);
+    }, []);
 
     useEffect(() => {
         fetchSubmissions().then((res) => {
@@ -19,11 +26,31 @@ export default function SubmissionsStack() {
         });
     }, []);
 
+    const handleAccordionChange = (submissionId) => (_, isExpanded) => {
+        const nextExpanded = isExpanded ? `submission-${submissionId}` : false;
+        setExpanded(nextExpanded);
+
+        const params = new URLSearchParams(window.location.search);
+        if (isExpanded) {
+            params.set('submission', String(submissionId));
+        } else {
+            params.delete('submission');
+        }
+
+        const query = params.toString();
+        const nextUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+        window.history.replaceState({}, '', nextUrl);
+    };
+
     return (
         <Box sx={{ p: 2, maxHeight: 640, overflowY: 'auto' }}>
             <Stack spacing={1.5}>
                 {submissions?.length ? submissions.map((submission) => (
-                    <Accordion key={submission.id}>
+                    <Accordion
+                        key={submission.id}
+                        expanded={expanded === `submission-${submission.id}`}
+                        onChange={handleAccordionChange(submission.id)}
+                    >
                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                             <Box>
                                 <Typography variant="subtitle1" sx={{ fontWeight: 800 }}>

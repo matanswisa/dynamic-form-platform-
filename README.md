@@ -4,17 +4,23 @@ A full-stack form platform that renders forms from JSON schema, validates user i
 
 ## Screenshots
 
-### Form Workspace
+### User Registration
 
-The main workspace lets users choose a form template, review generated fields, and submit validated data.
+The default workspace shows a generated registration form with schema metrics and saved submissions loaded from the API.
 
-![Dynamic Form Platform workspace](docs/images/form-workspace.png)
+![Dynamic Form Platform registration example](docs/images/form-example-registration.png)
 
-### Saved Submissions
+### Support Ticket
 
-Submitted forms are persisted through the API and shown in a recent submissions panel.
+The same UI can switch to a different schema and render a support workflow without changing application code.
 
-![Dynamic Form Platform submissions](docs/images/submissions-panel.png)
+![Dynamic Form Platform support ticket example](docs/images/form-example-support-ticket.png)
+
+### Product Feedback With Saved Submission
+
+Saved submissions are persisted in PostgreSQL and can be expanded directly in the workspace.
+
+![Dynamic Form Platform feedback example](docs/images/form-example-feedback-submission.png)
 
 ## What The Project Does
 
