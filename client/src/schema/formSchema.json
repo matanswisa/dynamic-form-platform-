@@ -1,0 +1,291 @@
+[
+  {
+    "formName": "User Registration",
+    "fields": [
+      {
+        "name": "fullName",
+        "type": "text",
+        "label": "Full Name",
+        "required": true,
+        "minLength": 3
+      },
+      {
+        "name": "email",
+        "type": "email",
+        "label": "Email Address",
+        "required": true
+      },
+      {
+        "name": "password",
+        "type": "password",
+        "label": "Password",
+        "required": true,
+        "minLength": 6
+      },
+      {
+        "name": "birthDate",
+        "type": "date",
+        "label": "Birth Date",
+        "required": true
+      },
+      {
+        "name": "age",
+        "type": "number",
+        "label": "Age",
+        "required": true,
+        "min": 0
+      },
+      {
+        "name": "gender",
+        "type": "select",
+        "label": "Gender",
+        "required": true,
+        "options": [
+          "Male",
+          "Female",
+          "Other"
+        ]
+      }
+    ]
+  },
+  {
+    "formName": "Login Form",
+    "fields": [
+      {
+        "name": "username",
+        "type": "text",
+        "label": "Username",
+        "required": true
+      },
+      {
+        "name": "password",
+        "type": "password",
+        "label": "Password",
+        "required": true
+      }
+    ]
+  },
+  {
+    "formName": "Job Application",
+    "fields": [
+      {
+        "name": "fullName",
+        "type": "text",
+        "label": "Full Name",
+        "required": true
+      },
+      {
+        "name": "email",
+        "type": "email",
+        "label": "Email",
+        "required": true
+      },
+      {
+        "name": "portfolio",
+        "type": "url",
+        "label": "Portfolio Link",
+        "required": false
+      },
+      {
+        "name": "experience",
+        "type": "number",
+        "label": "Years of Experience",
+        "required": true,
+        "min": 0
+      }
+    ]
+  },
+  {
+    "formName": "Newsletter Signup",
+    "fields": [
+      {
+        "name": "email",
+        "type": "email",
+        "label": "Email Address",
+        "required": true
+      },
+      {
+        "name": "subscribe",
+        "type": "checkbox",
+        "label": "Subscribe to updates",
+        "required": false
+      }
+    ]
+  },
+  {
+    "formName": "Event Registration",
+    "fields": [
+      {
+        "name": "event",
+        "type": "text",
+        "label": "Event Name",
+        "required": true
+      },
+      {
+        "name": "attendee",
+        "type": "text",
+        "label": "Your Name",
+        "required": true
+      },
+      {
+        "name": "date",
+        "type": "date",
+        "label": "Event Date",
+        "required": true
+      },
+      {
+        "name": "email",
+        "type": "email",
+        "label": "Contact Email",
+        "required": true
+      }
+    ]
+  },
+  {
+    "formName": "Feedback Form",
+    "fields": [
+      {
+        "name": "name",
+        "type": "text",
+        "label": "Name",
+        "required": true
+      },
+      {
+        "name": "email",
+        "type": "email",
+        "label": "Email (optional)",
+        "required": false
+      },
+      {
+        "name": "rating",
+        "type": "number",
+        "label": "Rating (1-5)",
+        "required": true,
+        "min": 1
+      },
+      {
+        "name": "comments",
+        "type": "textarea",
+        "label": "Your Comments",
+        "required": false
+      }
+    ]
+  },
+  {
+    "formName": "Support Ticket",
+    "fields": [
+      {
+        "name": "subject",
+        "type": "text",
+        "label": "Subject",
+        "required": true
+      },
+      {
+        "name": "email",
+        "type": "email",
+        "label": "Email",
+        "required": true
+      },
+      {
+        "name": "description",
+        "type": "textarea",
+        "label": "Issue Description",
+        "required": true,
+        "minLength": 10
+      },
+      {
+        "name": "priority",
+        "type": "select",
+        "label": "Priority",
+        "required": true,
+        "options": [
+          "Low",
+          "Medium",
+          "High"
+        ]
+      }
+    ]
+  },
+  {
+    "formName": "Product Feedback",
+    "fields": [
+      {
+        "name": "productName",
+        "type": "text",
+        "label": "Product Name",
+        "required": true
+      },
+      {
+        "name": "rating",
+        "type": "number",
+        "label": "Rating (1-5)",
+        "required": true,
+        "min": 1
+      },
+      {
+        "name": "wouldRecommend",
+        "type": "checkbox",
+        "label": "Would Recommend",
+        "required": false
+      }
+    ]
+  },
+  {
+    "formName": "Contact Us",
+    "fields": [
+      {
+        "name": "name",
+        "type": "text",
+        "label": "Your Name",
+        "required": true
+      },
+      {
+        "name": "email",
+        "type": "email",
+        "label": "Email Address",
+        "required": true
+      },
+      {
+        "name": "message",
+        "type": "textarea",
+        "label": "Message",
+        "required": true,
+        "minLength": 10
+      }
+    ]
+  },
+  {
+    "formName": "Device Registration",
+    "fields": [
+      {
+        "name": "deviceType",
+        "type": "select",
+        "label": "Device Type",
+        "required": true,
+        "options": [
+          "Phone",
+          "Tablet",
+          "Laptop"
+        ]
+      },
+      {
+        "name": "serialNumber",
+        "type": "text",
+        "label": "Serial Number",
+        "required": true
+      },
+      {
+        "name": "purchaseDate",
+        "type": "date",
+        "label": "Purchase Date",
+        "required": true
+      },
+      {
+        "name": "warranty",
+        "type": "checkbox",
+        "label": "Include Extended Warranty",
+        "required": false
+      }
+    ]
+  }
+]
